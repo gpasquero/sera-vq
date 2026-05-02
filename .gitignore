@@ -5,8 +5,9 @@
 *.toc
 *.blg
 
-# PDFs
+# PDFs (track only the published paper)
 *.pdf
+!paper/paper.pdf
 
 # Python
 __pycache__/
