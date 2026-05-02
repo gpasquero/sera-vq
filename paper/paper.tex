@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+
+\title{Discrete Codes for Extreme Embedding Compression in Retrieval Systems}
+\author{Your Name}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Modern embedding systems rely on dense floating-point vectors as the default representation for semantic similarity and retrieval tasks. However, under tight memory constraints, such representations may be suboptimal.
+
+In this work, we investigate extreme embedding compression and show that discrete representations based on residual vector quantization (RVQ) can outperform dense PCA-based compression in low-memory regimes. We propose SERA-VQ, a simple pipeline combining PCA dimensionality reduction with residual vector quantization, encoding each embedding as a short sequence of discrete codes.
+
+Across both semantic similarity (STS-B) and retrieval benchmarks (BEIR SciFact), we find a consistent pattern: while dense PCA with quantization remains competitive at moderate to high memory budgets, discrete codes significantly outperform dense embeddings when the memory per vector is constrained to 32 bytes or less. In particular, at 32 bytes per embedding, SERA-VQ achieves a substantial improvement in retrieval quality (nDCG@10: 0.560 vs. 0.451) compared to PCA with int8 quantization.
+
+These results reveal a previously underexplored regime where dense vector representations are no longer optimal, and suggest that discrete codes provide a more efficient alternative for memory-constrained retrieval systems.
+\end{abstract}
+
+\section{Introduction}
+
+Dense vector embeddings have become the dominant representation for semantic similarity and information retrieval tasks. Modern systems rely on high-dimensional continuous vectors, typically learned via neural encoders, and operate using similarity measures such as cosine similarity. This paradigm has proven highly effective across a wide range of applications, including search, recommendation, and natural language understanding.
+
+However, the widespread adoption of embedding-based systems has introduced new constraints, particularly in large-scale and memory-limited settings. Storing and processing dense floating-point vectors can become prohibitively expensive, especially when dealing with millions or billions of embeddings. As a result, a substantial body of work has focused on compressing embeddings through techniques such as dimensionality reduction, quantization, and approximate nearest neighbor search.
+
+Among these approaches, principal component analysis (PCA) combined with low-precision quantization (e.g., int8) represents a strong and widely used baseline. PCA provides an optimal linear projection in terms of variance preservation, while quantization reduces storage costs with minimal impact on similarity metrics. In practice, this combination offers an effective trade-off between compression and performance across many tasks.
+
+In this work, we revisit the problem of embedding compression under extreme memory constraints and challenge the implicit assumption that dense vector representations remain optimal in this regime. We ask a simple but fundamental question: are dense embeddings still the best representation when each vector must be compressed to only a few dozen bytes?
+
+To answer this, we investigate discrete representations based on residual vector quantization (RVQ). We introduce SERA-VQ, a simple pipeline that first applies PCA for dimensionality reduction and then encodes embeddings as short sequences of discrete codebook indices. This results in highly compact representations, where each embedding can be stored in as little as 8--32 bytes.
+
+Our empirical results reveal a clear and consistent pattern across both semantic similarity (STS-B) and retrieval benchmarks (BEIR SciFact). While dense PCA-based compression remains competitive at moderate to high memory budgets, discrete representations significantly outperform dense embeddings in the low-memory regime. In particular, at 32 bytes per embedding, SERA-VQ achieves substantial gains in retrieval quality compared to PCA with int8 quantization.
+
+These findings highlight the existence of a previously underexplored regime in which dense embeddings are no longer optimal, and suggest that discrete codes provide a more effective representation under tight memory constraints. This challenges the prevailing assumption that continuous vector spaces are inherently superior, and opens the door to alternative representations for large-scale retrieval systems.
+
+In summary, the contributions of this work are as follows:
+\begin{itemize}
+    \item We demonstrate that dense PCA-based compression becomes suboptimal under extreme memory constraints.
+    \item We propose SERA-VQ, a simple and effective discrete representation based on residual vector quantization.
+    \item We provide empirical evidence across semantic similarity and retrieval benchmarks showing that discrete codes outperform dense embeddings in low-memory regimes.
+\end{itemize}
+
+\end{document}
