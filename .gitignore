@@ -4,3 +4,4 @@ venv/
 .env
 datasets/
 *.zip
+.DS_Store

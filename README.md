@@ -1,43 +1,86 @@
 # SERA-VQ: Discrete Codes for Extreme Embedding Compression
 
-SERA-VQ compresses sentence embeddings into a few discrete bytes per vector
-using **PCA dimensionality reduction followed by Residual Vector
-Quantization (RVQ)**. Each embedding is encoded as a short sequence of
-codebook indices (1 byte each, 256 centroids per codebook), so a 1536-byte
-`float32` vector collapses to 8–32 bytes while preserving most of its
-semantic structure.
+Modern embedding systems assume dense floating-point vectors are the best representation for semantic similarity.
 
-The headline finding: **in the very-low-memory regime, discrete codes beat
-dense PCA + int8 by a wide margin on retrieval quality.**
+This repository shows they are not.
 
-## Key result (BEIR / SciFact, nDCG@10)
+We demonstrate that under tight memory constraints, discrete vector codes outperform dense PCA-compressed embeddings in retrieval tasks.
 
-| Method        | Bytes per embedding | nDCG@10   |
-| ------------- | ------------------- | --------- |
-| PCA + int8    | 32                  | 0.451     |
-| **SERA-VQ**   | **32**              | **0.560** |
+---
 
-At a 48× compression ratio, SERA-VQ recovers retrieval quality that PCA
-+ int8 cannot reach until it spends several times more bytes per vector.
+## Key Result (BEIR / SciFact, nDCG@10)
 
-## Repo layout
+Method        | Bytes per embedding | nDCG@10
+------------- | ------------------- | ---------
+PCA + int8    | 32                  | 0.451
+SERA-VQ       | 32                  | 0.560
 
-```
+At the same memory budget, SERA-VQ achieves +24% relative improvement in ranking quality.
+
+---
+
+## Method Overview
+
+SERA-VQ compresses embeddings using:
+
+1. PCA for dimensionality reduction
+2. Residual Vector Quantization (RVQ)
+3. Representation as short sequences of discrete codes
+
+Each embedding becomes:
+
+[c1, c2, c3, ..., cn]
+
+instead of a dense floating-point vector.
+
+This allows extreme compression:
+
+- 1536 bytes (float32) → 8–32 bytes
+- while preserving semantic structure
+
+---
+
+## Key Insight
+
+There exists a low-memory regime where dense embeddings are suboptimal.
+
+- High memory → PCA + int8 is strong
+- Low memory (≤32 bytes) → discrete codes dominate
+
+---
+
+## Repo Structure
+
 sera-vq/
-├── experiments/   # standalone experiment scripts (STS-B + BEIR/SciFact)
-├── plots/         # figure-generation scripts
-├── figures/       # paper figures (PNG)
-└── results/       # output CSVs from experiments
-```
+├── experiments/
+├── plots/
+├── figures/
+└── results/
 
-## How to run
+---
 
-```bash
+## How to Run
+
 pip install -r requirements.txt
 python experiments/sera_beir_scifact_experiment.py
-```
 
-The SciFact experiment downloads the BEIR/SciFact dataset on first run and
-writes its results CSV to the working directory. Other experiments
-(`sera_vq_experiment.py`, `sera_curve_experiment.py`,
-`sera_global_topm_experiment.py`) run on STS-B via HuggingFace `datasets`.
+---
+
+## Experiments
+
+- STS-B → semantic similarity
+- BEIR (SciFact) → real retrieval evaluation
+
+---
+
+## Summary
+
+Discrete representations outperform dense embeddings under extreme compression.
+
+---
+
+## Status
+
+[x] STS-B experiments
+[x] BEIR SciFact results
+[ ] Additional datasets (future work)
