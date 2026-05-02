@@ -1,7 +1,26 @@
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.blg
+
+# PDFs
+*.pdf
+
+# Python
 __pycache__/
 *.pyc
+
+# Environments
 venv/
+.env/
 .env
+
+# arXiv packaging
+paper/arxiv/
+
+# Project
 datasets/
 *.zip
 .DS_Store
