@@ -29,7 +29,7 @@ SERA-VQ compresses embeddings using:
 
 Each embedding becomes:
 
-[c1, c2, c3, ..., cn]
+`[c1, c2, c3, ..., cn]`
 
 instead of a dense floating-point vector.
 
@@ -51,18 +51,22 @@ There exists a low-memory regime where dense embeddings are suboptimal.
 
 ## Repo Structure
 
+```
 sera-vq/
 ├── experiments/
 ├── plots/
 ├── figures/
 └── results/
+```
 
 ---
 
 ## How to Run
 
+```bash
 pip install -r requirements.txt
 python experiments/sera_beir_scifact_experiment.py
+```
 
 ---
 
@@ -81,6 +85,6 @@ Discrete representations outperform dense embeddings under extreme compression.
 
 ## Status
 
-[x] STS-B experiments
-[x] BEIR SciFact results
-[ ] Additional datasets (future work)
+- [x] STS-B experiments
+- [x] BEIR SciFact results
+- [ ] Additional datasets (future work)
