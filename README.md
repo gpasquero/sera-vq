@@ -1,4 +1,7 @@
-# SERA-VQ: Discrete Codes for Extreme Embedding Compression
+# SERA-VQ: SERA-VQ (Structured Embedding Representation via Residual Approximation and Vector Quantization) 
+A simple pipeline that compresses dense embeddings into compact discrete codes.
+
+It shows that under tight memory constraints, discrete representations can outperform traditional dense embeddings in retrieval tasks.
 
 Dense embeddings are not always the best representation.
 
