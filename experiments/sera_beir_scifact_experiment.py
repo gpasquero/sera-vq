@@ -1,5 +1,6 @@
 import os
 import csv
+import time
 import zipfile
 import urllib.request
 from pathlib import Path
@@ -55,10 +56,8 @@ def load_qrels(path):
             parts = line.strip().split("\t")
 
             if len(parts) == 4:
-                # old format: qid, _, docid, score
                 qid, _, docid, score = parts
             elif len(parts) == 3:
-                # new format: qid, docid, score
                 qid, docid, score = parts
             else:
                 continue
@@ -70,32 +69,25 @@ def load_qrels(path):
 
     return qrels
 
+
 def normalize(x, eps=1e-8):
     return x / (np.linalg.norm(x, axis=1, keepdims=True) + eps)
 
 
 def search_topk(query_emb, doc_emb, topk=10, batch_size=256):
-    """
-    Brute-force cosine search.
-    Assumes embeddings are already normalized.
-    """
     results = {}
-
     doc_matrix = doc_emb.T
 
-    for start in tqdm(range(0, len(query_emb), batch_size), desc="Searching"):
+    for start in range(0, len(query_emb), batch_size):
         end = start + batch_size
         q = query_emb[start:end]
-
         scores = q @ doc_matrix
-
         idx = np.argpartition(-scores, topk, axis=1)[:, :topk]
         sorted_idx = np.take_along_axis(
             idx,
             np.argsort(-np.take_along_axis(scores, idx, axis=1), axis=1),
             axis=1,
         )
-
         for i, row in enumerate(sorted_idx):
             results[start + i] = row.tolist()
 
@@ -104,38 +96,30 @@ def search_topk(query_emb, doc_emb, topk=10, batch_size=256):
 
 def recall_at_k(results, qids, docids, qrels, k=10):
     recalls = []
-
     for qi, qid in enumerate(qids):
         relevant = qrels.get(qid, set())
         if not relevant:
             continue
-
         retrieved = [docids[j] for j in results[qi][:k]]
         hit_count = len(set(retrieved) & relevant)
         recalls.append(hit_count / len(relevant))
-
     return float(np.mean(recalls))
 
 
 def ndcg_at_k(results, qids, docids, qrels, k=10):
     scores = []
-
     for qi, qid in enumerate(qids):
         relevant = qrels.get(qid, set())
         if not relevant:
             continue
-
         dcg = 0.0
         for rank, doc_idx in enumerate(results[qi][:k], start=1):
             docid = docids[doc_idx]
             if docid in relevant:
                 dcg += 1.0 / np.log2(rank + 1)
-
         ideal_hits = min(len(relevant), k)
         idcg = sum(1.0 / np.log2(rank + 1) for rank in range(1, ideal_hits + 1))
-
         scores.append(dcg / idcg if idcg > 0 else 0.0)
-
     return float(np.mean(scores))
 
 
@@ -166,9 +150,7 @@ class ResidualVectorQuantizer:
     def fit(self, x):
         residual = x.astype(np.float32).copy()
         self.codebooks = []
-
         for i in range(self.n_codebooks):
-            print(f"  training codebook {i + 1}/{self.n_codebooks}")
             km = MiniBatchKMeans(
                 n_clusters=self.n_centroids,
                 batch_size=self.batch_size,
@@ -177,47 +159,103 @@ class ResidualVectorQuantizer:
                 max_iter=200,
             )
             km.fit(residual)
-
             centers = km.cluster_centers_.astype(np.float32)
             labels = km.predict(residual)
             approx = centers[labels]
-
             residual = residual - approx
             self.codebooks.append(centers)
-
         return self
 
     def encode(self, x):
         residual = x.astype(np.float32).copy()
         codes = []
-
         for centers in self.codebooks:
             x_norm = np.sum(residual ** 2, axis=1, keepdims=True)
             c_norm = np.sum(centers ** 2, axis=1)[None, :]
             dist = x_norm + c_norm - 2 * residual @ centers.T
-
             labels = np.argmin(dist, axis=1).astype(np.uint16)
             approx = centers[labels]
-
             residual = residual - approx
             codes.append(labels)
-
         return np.stack(codes, axis=1)
 
     def decode(self, codes):
         n = codes.shape[0]
         dim = self.codebooks[0].shape[1]
         out = np.zeros((n, dim), dtype=np.float32)
-
         for i, centers in enumerate(self.codebooks):
             out += centers[codes[:, i]]
-
         return out
+
+    def codebook_bytes(self):
+        return sum(c.nbytes for c in self.codebooks)
+
+
+# ----------------------------
+# Product Quantizer (PQ)
+# ----------------------------
+
+class ProductQuantizer:
+    """
+    Standard PQ: split d-dim vector into n_codebooks chunks of d/n_codebooks dims each,
+    train independent KMeans (256 centroids) on each chunk.
+    """
+    def __init__(self, n_codebooks=8, n_centroids=256, batch_size=2048, random_state=42):
+        self.n_codebooks = n_codebooks
+        self.n_centroids = n_centroids
+        self.batch_size = batch_size
+        self.random_state = random_state
+        self.codebooks = []
+        self.sub_dim = None
+
+    def fit(self, x):
+        d = x.shape[1]
+        if d % self.n_codebooks != 0:
+            raise ValueError(f"dim {d} not divisible by n_codebooks {self.n_codebooks}")
+        self.sub_dim = d // self.n_codebooks
+        self.codebooks = []
+        for i in range(self.n_codebooks):
+            chunk = x[:, i * self.sub_dim : (i + 1) * self.sub_dim].astype(np.float32)
+            km = MiniBatchKMeans(
+                n_clusters=self.n_centroids,
+                batch_size=self.batch_size,
+                random_state=self.random_state + i,
+                n_init="auto",
+                max_iter=200,
+            )
+            km.fit(chunk)
+            self.codebooks.append(km.cluster_centers_.astype(np.float32))
+        return self
+
+    def encode(self, x):
+        codes = []
+        for i, centers in enumerate(self.codebooks):
+            chunk = x[:, i * self.sub_dim : (i + 1) * self.sub_dim].astype(np.float32)
+            x_norm = np.sum(chunk ** 2, axis=1, keepdims=True)
+            c_norm = np.sum(centers ** 2, axis=1)[None, :]
+            dist = x_norm + c_norm - 2 * chunk @ centers.T
+            labels = np.argmin(dist, axis=1).astype(np.uint16)
+            codes.append(labels)
+        return np.stack(codes, axis=1)
+
+    def decode(self, codes):
+        n = codes.shape[0]
+        d = self.n_codebooks * self.sub_dim
+        out = np.zeros((n, d), dtype=np.float32)
+        for i, centers in enumerate(self.codebooks):
+            out[:, i * self.sub_dim : (i + 1) * self.sub_dim] = centers[codes[:, i]]
+        return out
+
+    def codebook_bytes(self):
+        return sum(c.nbytes for c in self.codebooks)
 
 
 # ----------------------------
 # Main experiment
 # ----------------------------
+
+SEEDS = [42, 123, 456]
+
 
 def main():
     dataset_path = download_and_extract_scifact()
@@ -226,7 +264,7 @@ def main():
     queries_path = dataset_path / "queries.jsonl"
     qrels_path = dataset_path / "qrels" / "test.tsv"
 
-    print("Loading SciFact files...")
+    print("Loading SciFact...")
     corpus = load_beir_jsonl(corpus_path)
     queries = load_beir_jsonl(queries_path)
     qrels = load_qrels(qrels_path)
@@ -268,114 +306,121 @@ def main():
     raw_bytes = doc_emb.shape[1] * 4
     results = []
 
-    def eval_method(name, q, d, bytes_per_embedding):
-        q = normalize(q)
-        d = normalize(d)
+    def time_search(q, d, n_runs=3):
+        ts = []
+        for _ in range(n_runs):
+            t0 = time.perf_counter()
+            search_topk(q, d, topk=10)
+            ts.append(time.perf_counter() - t0)
+        return min(ts) / len(q) * 1000.0  # ms/query, best-of-n
 
-        topk = search_topk(q, d, topk=10)
+    def eval_method(name, q, d, bytes_per_embedding, seed, codebook_bytes=0):
+        q_n = normalize(q)
+        d_n = normalize(d)
 
+        ms_per_query = time_search(q_n, d_n)
+
+        topk = search_topk(q_n, d_n, topk=10)
         r10 = recall_at_k(topk, qids, docids, qrels, k=10)
         n10 = ndcg_at_k(topk, qids, docids, qrels, k=10)
 
         comp = raw_bytes / bytes_per_embedding
 
         print(
-            f"{name:35s} "
-            f"bytes={bytes_per_embedding:8.2f} "
-            f"comp={comp:8.2f} "
-            f"Recall@10={r10:.4f} "
-            f"nDCG@10={n10:.4f}"
+            f"{name:38s} seed={seed:>4} bytes={bytes_per_embedding:7.2f} "
+            f"comp={comp:7.2f}x R@10={r10:.4f} nDCG@10={n10:.4f} "
+            f"ms/q={ms_per_query:.3f} cb_kB={codebook_bytes/1024:.1f}"
         )
 
         results.append({
             "method": name,
+            "seed": seed,
             "bytes_per_embedding": bytes_per_embedding,
             "compression": comp,
             "recall_at_10": r10,
             "ndcg_at_10": n10,
+            "ms_per_query": ms_per_query,
+            "codebook_kb": codebook_bytes / 1024.0,
         })
 
-    print("\nEvaluating raw...")
-    eval_method(
-        "Raw float32",
-        query_emb,
-        doc_emb,
-        raw_bytes,
-    )
+    # Deterministic baselines (single "seed" since fixed)
+    print("\n=== Deterministic baselines ===")
+    eval_method("Raw float32", query_emb, doc_emb, raw_bytes, seed=0)
 
-    # PCA + int8 baselines
     for k in [32, 64, 96, 128, 192]:
-        print(f"\nPCA baseline k={k}")
         pca = PCA(n_components=k, random_state=42)
         pca.fit(doc_emb)
 
         d = pca.transform(doc_emb).astype(np.float32)
         q = pca.transform(query_emb).astype(np.float32)
 
-        eval_method(
-            f"PCA-{k} float32",
-            q,
-            d,
-            k * 4,
-        )
+        eval_method(f"PCA-{k} float32", q, d, k * 4, seed=0)
 
         dq, scale = quantize_int8(d)
         qq, _ = quantize_int8(q, scale=scale)
-
-        d_deq = dequantize_int8(dq, scale)
-        q_deq = dequantize_int8(qq, scale)
-
         eval_method(
             f"PCA-{k} int8",
-            q_deq,
-            d_deq,
+            dequantize_int8(qq, scale),
+            dequantize_int8(dq, scale),
             k,
+            seed=0,
         )
 
-    # SERA-VQ
+    # Stochastic methods: SERA-VQ (PCA + RVQ) and PQ on PCA-projected vectors.
+    # 3 seeds each.
+    print("\n=== Stochastic methods (RVQ, PQ) ===")
     for k in [64, 96, 128]:
-        print(f"\nSERA-VQ PCA space k={k}")
         pca = PCA(n_components=k, random_state=42)
         pca.fit(doc_emb)
-
-        d_train = pca.transform(doc_emb).astype(np.float32)
-        d = d_train
-        q = pca.transform(query_emb).astype(np.float32)
+        d_pca = pca.transform(doc_emb).astype(np.float32)
+        q_pca = pca.transform(query_emb).astype(np.float32)
 
         for n_codebooks in [8, 16, 24, 32]:
-            print(f"\nTraining RVQ: PCA-{k}, codebooks={n_codebooks}")
-            rvq = ResidualVectorQuantizer(
-                n_codebooks=n_codebooks,
-                n_centroids=256,
-                batch_size=2048,
-                random_state=42,
-            )
+            for seed in SEEDS:
+                rvq = ResidualVectorQuantizer(
+                    n_codebooks=n_codebooks,
+                    n_centroids=256,
+                    batch_size=2048,
+                    random_state=seed,
+                )
+                rvq.fit(d_pca)
+                eval_method(
+                    f"SERA-VQ-{k}-{n_codebooks}B",
+                    rvq.decode(rvq.encode(q_pca)),
+                    rvq.decode(rvq.encode(d_pca)),
+                    n_codebooks,
+                    seed=seed,
+                    codebook_bytes=rvq.codebook_bytes(),
+                )
 
-            rvq.fit(d_train)
+            # PQ requires dim divisibility.
+            if k % n_codebooks != 0:
+                continue
+            for seed in SEEDS:
+                pq = ProductQuantizer(
+                    n_codebooks=n_codebooks,
+                    n_centroids=256,
+                    batch_size=2048,
+                    random_state=seed,
+                )
+                pq.fit(d_pca)
+                eval_method(
+                    f"PQ-{k}-{n_codebooks}B",
+                    pq.decode(pq.encode(q_pca)),
+                    pq.decode(pq.encode(d_pca)),
+                    n_codebooks,
+                    seed=seed,
+                    codebook_bytes=pq.codebook_bytes(),
+                )
 
-            d_codes = rvq.encode(d)
-            q_codes = rvq.encode(q)
-
-            d_dec = rvq.decode(d_codes)
-            q_dec = rvq.decode(q_codes)
-
-            eval_method(
-                f"SERA-VQ-{k}-{n_codebooks}B",
-                q_dec,
-                d_dec,
-                n_codebooks,
-            )
-
-    csv_path = "sera_beir_scifact_results.csv"
+    csv_path = "results/sera_beir_scifact_results.csv"
+    Path("results").mkdir(exist_ok=True)
     with open(csv_path, "w", newline="") as f:
         writer = csv.DictWriter(
             f,
             fieldnames=[
-                "method",
-                "bytes_per_embedding",
-                "compression",
-                "recall_at_10",
-                "ndcg_at_10",
+                "method", "seed", "bytes_per_embedding", "compression",
+                "recall_at_10", "ndcg_at_10", "ms_per_query", "codebook_kb",
             ],
         )
         writer.writeheader()
@@ -383,21 +428,19 @@ def main():
 
     print(f"\nSaved {csv_path}")
 
-    print("\nBest under budgets")
-    for budget in [16, 32, 64, 96, 128]:
-        print(f"\nBest under {budget} bytes")
-        print("=" * 90)
-        filtered = [r for r in results if r["bytes_per_embedding"] <= budget]
-        filtered = sorted(filtered, key=lambda r: r["ndcg_at_10"], reverse=True)
+    # Aggregate per (method, bytes): mean+std nDCG over seeds
+    print("\n=== Aggregated nDCG@10 (mean ± std over seeds) ===")
+    from collections import defaultdict
+    agg = defaultdict(list)
+    for r in results:
+        agg[(r["method"], r["bytes_per_embedding"])].append(r["ndcg_at_10"])
 
-        for r in filtered[:10]:
-            print(
-                f"{r['method']:35s} "
-                f"{r['bytes_per_embedding']:8.2f}B "
-                f"{r['compression']:8.2f}x "
-                f"R@10={r['recall_at_10']:.4f} "
-                f"nDCG@10={r['ndcg_at_10']:.4f}"
-            )
+    rows = []
+    for (m, b), vals in agg.items():
+        rows.append((m, b, float(np.mean(vals)), float(np.std(vals)), len(vals)))
+    rows.sort(key=lambda r: (r[1], -r[2]))
+    for m, b, mu, sd, n in rows:
+        print(f"  {m:38s} bytes={b:6.0f} nDCG@10={mu:.4f}±{sd:.4f}  (n={n})")
 
 
 if __name__ == "__main__":
