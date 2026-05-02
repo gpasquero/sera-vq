@@ -94,6 +94,10 @@ Discrete representations outperform dense embeddings under extreme compression.
 
 ---
 
+## Paper
+
+Preprint coming soon on arXiv.
+
 ## Status
 
 - [x] STS-B experiments
