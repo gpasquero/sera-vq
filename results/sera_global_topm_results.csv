@@ -1,0 +1,140 @@
+method,family,dim,stored_dim,bytes_per_embedding,compression,spearman
+PCA-384 float32,PCA float32,384,384,1536,1.0,0.8687899109490904
+PCA-384 int8 dense,PCA int8 dense,384,384,384,4.0,0.8687156109582628
+PCA-256 float32,PCA float32,256,256,1024,1.5,0.8686645585494162
+PCA-256 int8 dense,PCA int8 dense,256,256,256,6.0,0.8685365744753277
+Raw float32,Raw,384,384,1536,1.0,0.8671631197908373
+PCA-192 float32,PCA float32,192,192,768,2.0,0.8667777511974881
+GlobalTopM PCA-192 m=192 mean_abs,GlobalTopM-mean_abs,192,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-192 m=192 variance,GlobalTopM-variance,192,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-192 m=192 energy,GlobalTopM-energy,192,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-256 m=192 mean_abs,GlobalTopM-mean_abs,256,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-256 m=192 variance,GlobalTopM-variance,256,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-256 m=192 energy,GlobalTopM-energy,256,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-384 m=192 mean_abs,GlobalTopM-mean_abs,384,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-384 m=192 variance,GlobalTopM-variance,384,192,192,8.0,0.8667054059518324
+GlobalTopM PCA-384 m=192 energy,GlobalTopM-energy,384,192,192,8.0,0.8667054059518324
+PCA-192 int8 dense,PCA int8 dense,192,192,192,8.0,0.8667041967569887
+PCA-128 float32,PCA float32,128,128,512,3.0,0.8609334891571832
+PCA-128 int8 dense,PCA int8 dense,128,128,128,12.0,0.860828528230656
+GlobalTopM PCA-128 m=128 mean_abs,GlobalTopM-mean_abs,128,128,128,12.0,0.860828528230656
+GlobalTopM PCA-128 m=128 variance,GlobalTopM-variance,128,128,128,12.0,0.860828528230656
+GlobalTopM PCA-128 m=128 energy,GlobalTopM-energy,128,128,128,12.0,0.860828528230656
+GlobalTopM PCA-192 m=128 mean_abs,GlobalTopM-mean_abs,192,128,128,12.0,0.860828528230656
+GlobalTopM PCA-192 m=128 variance,GlobalTopM-variance,192,128,128,12.0,0.860828528230656
+GlobalTopM PCA-192 m=128 energy,GlobalTopM-energy,192,128,128,12.0,0.860828528230656
+GlobalTopM PCA-256 m=128 mean_abs,GlobalTopM-mean_abs,256,128,128,12.0,0.860828528230656
+GlobalTopM PCA-256 m=128 variance,GlobalTopM-variance,256,128,128,12.0,0.860828528230656
+GlobalTopM PCA-256 m=128 energy,GlobalTopM-energy,256,128,128,12.0,0.860828528230656
+GlobalTopM PCA-384 m=128 mean_abs,GlobalTopM-mean_abs,384,128,128,12.0,0.860828528230656
+GlobalTopM PCA-384 m=128 variance,GlobalTopM-variance,384,128,128,12.0,0.860828528230656
+GlobalTopM PCA-384 m=128 energy,GlobalTopM-energy,384,128,128,12.0,0.860828528230656
+PCA-96 int8 dense,PCA int8 dense,96,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-96 m=96 mean_abs,GlobalTopM-mean_abs,96,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-96 m=96 variance,GlobalTopM-variance,96,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-96 m=96 energy,GlobalTopM-energy,96,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-128 m=96 mean_abs,GlobalTopM-mean_abs,128,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-128 m=96 variance,GlobalTopM-variance,128,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-128 m=96 energy,GlobalTopM-energy,128,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-192 m=96 mean_abs,GlobalTopM-mean_abs,192,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-192 m=96 variance,GlobalTopM-variance,192,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-192 m=96 energy,GlobalTopM-energy,192,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-256 m=96 mean_abs,GlobalTopM-mean_abs,256,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-256 m=96 variance,GlobalTopM-variance,256,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-256 m=96 energy,GlobalTopM-energy,256,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-384 m=96 mean_abs,GlobalTopM-mean_abs,384,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-384 m=96 variance,GlobalTopM-variance,384,96,96,16.0,0.8559967366399572
+GlobalTopM PCA-384 m=96 energy,GlobalTopM-energy,384,96,96,16.0,0.8559967366399572
+PCA-96 float32,PCA float32,96,96,384,4.0,0.8559014394211667
+PCA-64 float32,PCA float32,64,64,256,6.0,0.8444633994991836
+PCA-64 int8 dense,PCA int8 dense,64,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-64 m=64 mean_abs,GlobalTopM-mean_abs,64,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-64 m=64 variance,GlobalTopM-variance,64,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-64 m=64 energy,GlobalTopM-energy,64,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-96 m=64 mean_abs,GlobalTopM-mean_abs,96,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-96 m=64 variance,GlobalTopM-variance,96,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-96 m=64 energy,GlobalTopM-energy,96,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-128 m=64 mean_abs,GlobalTopM-mean_abs,128,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-128 m=64 variance,GlobalTopM-variance,128,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-128 m=64 energy,GlobalTopM-energy,128,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-192 m=64 mean_abs,GlobalTopM-mean_abs,192,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-192 m=64 variance,GlobalTopM-variance,192,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-192 m=64 energy,GlobalTopM-energy,192,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-256 m=64 mean_abs,GlobalTopM-mean_abs,256,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-256 m=64 variance,GlobalTopM-variance,256,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-256 m=64 energy,GlobalTopM-energy,256,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-384 m=64 mean_abs,GlobalTopM-mean_abs,384,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-384 m=64 variance,GlobalTopM-variance,384,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-384 m=64 energy,GlobalTopM-energy,384,64,64,24.0,0.8444002695623783
+GlobalTopM PCA-64 m=48 mean_abs,GlobalTopM-mean_abs,64,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-64 m=48 variance,GlobalTopM-variance,64,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-64 m=48 energy,GlobalTopM-energy,64,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-96 m=48 mean_abs,GlobalTopM-mean_abs,96,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-96 m=48 variance,GlobalTopM-variance,96,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-96 m=48 energy,GlobalTopM-energy,96,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-128 m=48 mean_abs,GlobalTopM-mean_abs,128,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-128 m=48 variance,GlobalTopM-variance,128,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-128 m=48 energy,GlobalTopM-energy,128,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-192 m=48 mean_abs,GlobalTopM-mean_abs,192,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-192 m=48 variance,GlobalTopM-variance,192,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-192 m=48 energy,GlobalTopM-energy,192,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-256 m=48 mean_abs,GlobalTopM-mean_abs,256,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-256 m=48 variance,GlobalTopM-variance,256,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-256 m=48 energy,GlobalTopM-energy,256,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-384 m=48 mean_abs,GlobalTopM-mean_abs,384,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-384 m=48 variance,GlobalTopM-variance,384,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-384 m=48 energy,GlobalTopM-energy,384,48,48,32.0,0.8310856625090574
+GlobalTopM PCA-64 m=32 mean_abs,GlobalTopM-mean_abs,64,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-64 m=32 variance,GlobalTopM-variance,64,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-64 m=32 energy,GlobalTopM-energy,64,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-96 m=32 mean_abs,GlobalTopM-mean_abs,96,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-96 m=32 variance,GlobalTopM-variance,96,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-96 m=32 energy,GlobalTopM-energy,96,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-128 m=32 mean_abs,GlobalTopM-mean_abs,128,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-128 m=32 variance,GlobalTopM-variance,128,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-128 m=32 energy,GlobalTopM-energy,128,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-192 m=32 mean_abs,GlobalTopM-mean_abs,192,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-192 m=32 variance,GlobalTopM-variance,192,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-192 m=32 energy,GlobalTopM-energy,192,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-256 m=32 mean_abs,GlobalTopM-mean_abs,256,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-256 m=32 variance,GlobalTopM-variance,256,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-256 m=32 energy,GlobalTopM-energy,256,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-384 m=32 mean_abs,GlobalTopM-mean_abs,384,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-384 m=32 variance,GlobalTopM-variance,384,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-384 m=32 energy,GlobalTopM-energy,384,32,32,48.0,0.8076873961899286
+GlobalTopM PCA-64 m=24 mean_abs,GlobalTopM-mean_abs,64,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-64 m=24 variance,GlobalTopM-variance,64,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-64 m=24 energy,GlobalTopM-energy,64,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-96 m=24 mean_abs,GlobalTopM-mean_abs,96,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-96 m=24 variance,GlobalTopM-variance,96,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-96 m=24 energy,GlobalTopM-energy,96,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-128 m=24 mean_abs,GlobalTopM-mean_abs,128,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-128 m=24 variance,GlobalTopM-variance,128,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-128 m=24 energy,GlobalTopM-energy,128,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-192 m=24 mean_abs,GlobalTopM-mean_abs,192,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-192 m=24 variance,GlobalTopM-variance,192,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-192 m=24 energy,GlobalTopM-energy,192,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-256 m=24 mean_abs,GlobalTopM-mean_abs,256,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-256 m=24 variance,GlobalTopM-variance,256,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-256 m=24 energy,GlobalTopM-energy,256,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-384 m=24 mean_abs,GlobalTopM-mean_abs,384,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-384 m=24 variance,GlobalTopM-variance,384,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-384 m=24 energy,GlobalTopM-energy,384,24,24,64.0,0.7873645771765274
+GlobalTopM PCA-64 m=16 mean_abs,GlobalTopM-mean_abs,64,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-64 m=16 variance,GlobalTopM-variance,64,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-64 m=16 energy,GlobalTopM-energy,64,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-96 m=16 mean_abs,GlobalTopM-mean_abs,96,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-96 m=16 variance,GlobalTopM-variance,96,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-96 m=16 energy,GlobalTopM-energy,96,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-128 m=16 mean_abs,GlobalTopM-mean_abs,128,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-128 m=16 variance,GlobalTopM-variance,128,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-128 m=16 energy,GlobalTopM-energy,128,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-192 m=16 mean_abs,GlobalTopM-mean_abs,192,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-192 m=16 variance,GlobalTopM-variance,192,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-192 m=16 energy,GlobalTopM-energy,192,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-256 m=16 mean_abs,GlobalTopM-mean_abs,256,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-256 m=16 variance,GlobalTopM-variance,256,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-256 m=16 energy,GlobalTopM-energy,256,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-384 m=16 mean_abs,GlobalTopM-mean_abs,384,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-384 m=16 variance,GlobalTopM-variance,384,16,16,96.0,0.7484183901569993
+GlobalTopM PCA-384 m=16 energy,GlobalTopM-energy,384,16,16,96.0,0.7484183901569993

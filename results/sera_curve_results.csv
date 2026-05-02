@@ -1,0 +1,394 @@
+method,family,dim,bytes_per_embedding,compression,spearman
+Raw float32,Raw,384,1536,1.0,0.8671631197908373
+PCA-32 float32,PCA float32,32,128,12.0,0.8077110449544967
+PCA-32 int8 dense,PCA int8 dense,32,32,48.0,0.8076860536623104
+PCA-32 topm-4,PCA top-m int8,32,12,128.0,0.5988779104901671
+PCA-32 topm-8,PCA top-m int8,32,24,64.0,0.706041422023837
+PCA-32 topm-12,PCA top-m int8,32,36,42.666666666666664,0.7669464189576246
+PCA-32 topm-16,PCA top-m int8,32,48,32.0,0.7832514266511655
+PCA-32 topm-24,PCA top-m int8,32,72,21.333333333333332,0.8039995619661164
+PCA-32 topm-32,PCA top-m int8,32,96,16.0,0.8076860536623104
+RandRot-32-s1 topm-4,Random rotation top-m int8,32,12,128.0,0.6357456953522606
+RandRot-32-s1 topm-8,Random rotation top-m int8,32,24,64.0,0.7225678373010063
+RandRot-32-s1 topm-12,Random rotation top-m int8,32,36,42.666666666666664,0.7693233814520843
+RandRot-32-s1 topm-16,Random rotation top-m int8,32,48,32.0,0.7956844049821863
+RandRot-32-s1 topm-24,Random rotation top-m int8,32,72,21.333333333333332,0.8070883381190661
+RandRot-32-s1 topm-32,Random rotation top-m int8,32,96,16.0,0.8075339024834943
+RandRot-32-s2 topm-4,Random rotation top-m int8,32,12,128.0,0.6663412982739314
+RandRot-32-s2 topm-8,Random rotation top-m int8,32,24,64.0,0.7481577279278766
+RandRot-32-s2 topm-12,Random rotation top-m int8,32,36,42.666666666666664,0.778986946839875
+RandRot-32-s2 topm-16,Random rotation top-m int8,32,48,32.0,0.795588576441749
+RandRot-32-s2 topm-24,Random rotation top-m int8,32,72,21.333333333333332,0.8055586128640982
+RandRot-32-s2 topm-32,Random rotation top-m int8,32,96,16.0,0.8074782547582586
+RandRot-32-s3 topm-4,Random rotation top-m int8,32,12,128.0,0.6491241519200415
+RandRot-32-s3 topm-8,Random rotation top-m int8,32,24,64.0,0.7394379185191562
+RandRot-32-s3 topm-12,Random rotation top-m int8,32,36,42.666666666666664,0.7699798801257816
+RandRot-32-s3 topm-16,Random rotation top-m int8,32,48,32.0,0.7844793474273924
+RandRot-32-s3 topm-24,Random rotation top-m int8,32,72,21.333333333333332,0.8049445501627468
+RandRot-32-s3 topm-32,Random rotation top-m int8,32,96,16.0,0.8076673936788209
+RandRot-32-s4 topm-4,Random rotation top-m int8,32,12,128.0,0.6752036767102708
+RandRot-32-s4 topm-8,Random rotation top-m int8,32,24,64.0,0.759154730972635
+RandRot-32-s4 topm-12,Random rotation top-m int8,32,36,42.666666666666664,0.784411409658088
+RandRot-32-s4 topm-16,Random rotation top-m int8,32,48,32.0,0.792742169855633
+RandRot-32-s4 topm-24,Random rotation top-m int8,32,72,21.333333333333332,0.8050564933004983
+RandRot-32-s4 topm-32,Random rotation top-m int8,32,96,16.0,0.8076596659154809
+RandRot-32-s5 topm-4,Random rotation top-m int8,32,12,128.0,0.6608046482510325
+RandRot-32-s5 topm-8,Random rotation top-m int8,32,24,64.0,0.7514393384715922
+RandRot-32-s5 topm-12,Random rotation top-m int8,32,36,42.666666666666664,0.7784633130265526
+RandRot-32-s5 topm-16,Random rotation top-m int8,32,48,32.0,0.7958427947712081
+RandRot-32-s5 topm-24,Random rotation top-m int8,32,72,21.333333333333332,0.8053304408246185
+RandRot-32-s5 topm-32,Random rotation top-m int8,32,96,16.0,0.8080589419917372
+PCA-64 float32,PCA float32,64,256,6.0,0.8444633994991836
+PCA-64 int8 dense,PCA int8 dense,64,64,24.0,0.8444002695623783
+PCA-64 topm-4,PCA top-m int8,64,12,128.0,0.5907117210521695
+PCA-64 topm-8,PCA top-m int8,64,24,64.0,0.6900003529456396
+PCA-64 topm-12,PCA top-m int8,64,36,42.666666666666664,0.74392859029203
+PCA-64 topm-16,PCA top-m int8,64,48,32.0,0.786668649649997
+PCA-64 topm-24,PCA top-m int8,64,72,21.333333333333332,0.8208261874573539
+PCA-64 topm-32,PCA top-m int8,64,96,16.0,0.8318605473854507
+PCA-64 topm-48,PCA top-m int8,64,144,10.666666666666666,0.8421544850943891
+PCA-64 topm-64,PCA top-m int8,64,192,8.0,0.8444002695623783
+RandRot-64-s1 topm-4,Random rotation top-m int8,64,12,128.0,0.6597428191363767
+RandRot-64-s1 topm-8,Random rotation top-m int8,64,24,64.0,0.7499619985773359
+RandRot-64-s1 topm-12,Random rotation top-m int8,64,36,42.666666666666664,0.7885398228183481
+RandRot-64-s1 topm-16,Random rotation top-m int8,64,48,32.0,0.8104597105524478
+RandRot-64-s1 topm-24,Random rotation top-m int8,64,72,21.333333333333332,0.8303440267659299
+RandRot-64-s1 topm-32,Random rotation top-m int8,64,96,16.0,0.8363278885467023
+RandRot-64-s1 topm-48,Random rotation top-m int8,64,144,10.666666666666666,0.8426943075309834
+RandRot-64-s1 topm-64,Random rotation top-m int8,64,192,8.0,0.8443959225842896
+RandRot-64-s2 topm-4,Random rotation top-m int8,64,12,128.0,0.6623722326763468
+RandRot-64-s2 topm-8,Random rotation top-m int8,64,24,64.0,0.7426807639407494
+RandRot-64-s2 topm-12,Random rotation top-m int8,64,36,42.666666666666664,0.7871896890986327
+RandRot-64-s2 topm-16,Random rotation top-m int8,64,48,32.0,0.8126133988714714
+RandRot-64-s2 topm-24,Random rotation top-m int8,64,72,21.333333333333332,0.8312535967886516
+RandRot-64-s2 topm-32,Random rotation top-m int8,64,96,16.0,0.83472782160618
+RandRot-64-s2 topm-48,Random rotation top-m int8,64,144,10.666666666666666,0.8426891669580409
+RandRot-64-s2 topm-64,Random rotation top-m int8,64,192,8.0,0.8443472819813272
+RandRot-64-s3 topm-4,Random rotation top-m int8,64,12,128.0,0.6582731716267433
+RandRot-64-s3 topm-8,Random rotation top-m int8,64,24,64.0,0.7434467189381339
+RandRot-64-s3 topm-12,Random rotation top-m int8,64,36,42.666666666666664,0.7821554932183706
+RandRot-64-s3 topm-16,Random rotation top-m int8,64,48,32.0,0.8001999470659266
+RandRot-64-s3 topm-24,Random rotation top-m int8,64,72,21.333333333333332,0.8217003428648884
+RandRot-64-s3 topm-32,Random rotation top-m int8,64,96,16.0,0.8305614237131108
+RandRot-64-s3 topm-48,Random rotation top-m int8,64,144,10.666666666666666,0.8433631975322831
+RandRot-64-s3 topm-64,Random rotation top-m int8,64,192,8.0,0.8442984456486924
+RandRot-64-s4 topm-4,Random rotation top-m int8,64,12,128.0,0.6774114158680207
+RandRot-64-s4 topm-8,Random rotation top-m int8,64,24,64.0,0.7608406805384591
+RandRot-64-s4 topm-12,Random rotation top-m int8,64,36,42.666666666666664,0.7863564388493227
+RandRot-64-s4 topm-16,Random rotation top-m int8,64,48,32.0,0.8088835973651113
+RandRot-64-s4 topm-24,Random rotation top-m int8,64,72,21.333333333333332,0.8247269730674772
+RandRot-64-s4 topm-32,Random rotation top-m int8,64,96,16.0,0.8372760422259444
+RandRot-64-s4 topm-48,Random rotation top-m int8,64,144,10.666666666666666,0.8432101317303754
+RandRot-64-s4 topm-64,Random rotation top-m int8,64,192,8.0,0.8444409510851151
+RandRot-64-s5 topm-4,Random rotation top-m int8,64,12,128.0,0.6508563915677867
+RandRot-64-s5 topm-8,Random rotation top-m int8,64,24,64.0,0.7399124371540193
+RandRot-64-s5 topm-12,Random rotation top-m int8,64,36,42.666666666666664,0.7831412546979145
+RandRot-64-s5 topm-16,Random rotation top-m int8,64,48,32.0,0.7998285295494907
+RandRot-64-s5 topm-24,Random rotation top-m int8,64,72,21.333333333333332,0.8209239640552524
+RandRot-64-s5 topm-32,Random rotation top-m int8,64,96,16.0,0.8314726894665402
+RandRot-64-s5 topm-48,Random rotation top-m int8,64,144,10.666666666666666,0.8426164381194754
+RandRot-64-s5 topm-64,Random rotation top-m int8,64,192,8.0,0.8444780721071742
+PCA-96 float32,PCA float32,96,384,4.0,0.8559014394211667
+PCA-96 int8 dense,PCA int8 dense,96,96,16.0,0.8559967366399572
+PCA-96 topm-4,PCA top-m int8,96,12,128.0,0.5766259356663074
+PCA-96 topm-8,PCA top-m int8,96,24,64.0,0.6810630699815613
+PCA-96 topm-12,PCA top-m int8,96,36,42.666666666666664,0.7333783743550217
+PCA-96 topm-16,PCA top-m int8,96,48,32.0,0.774617086861491
+PCA-96 topm-24,PCA top-m int8,96,72,21.333333333333332,0.816435120370092
+PCA-96 topm-32,PCA top-m int8,96,96,16.0,0.83605604494273
+PCA-96 topm-48,PCA top-m int8,96,144,10.666666666666666,0.8493462320503731
+PCA-96 topm-64,PCA top-m int8,96,192,8.0,0.8544995327597459
+PCA-96 topm-96,PCA top-m int8,96,288,5.333333333333333,0.8559967366399572
+RandRot-96-s1 topm-4,Random rotation top-m int8,96,12,128.0,0.6258540773307963
+RandRot-96-s1 topm-8,Random rotation top-m int8,96,24,64.0,0.7337754811920439
+RandRot-96-s1 topm-12,Random rotation top-m int8,96,36,42.666666666666664,0.7820963396714042
+RandRot-96-s1 topm-16,Random rotation top-m int8,96,48,32.0,0.7987762404618947
+RandRot-96-s1 topm-24,Random rotation top-m int8,96,72,21.333333333333332,0.8216503641827106
+RandRot-96-s1 topm-32,Random rotation top-m int8,96,96,16.0,0.8353538202588291
+RandRot-96-s1 topm-48,Random rotation top-m int8,96,144,10.666666666666666,0.847820613559805
+RandRot-96-s1 topm-64,Random rotation top-m int8,96,192,8.0,0.8542916002319076
+RandRot-96-s1 topm-96,Random rotation top-m int8,96,288,5.333333333333333,0.8559142241274985
+RandRot-96-s2 topm-4,Random rotation top-m int8,96,12,128.0,0.6529721092680076
+RandRot-96-s2 topm-8,Random rotation top-m int8,96,24,64.0,0.7560846528336026
+RandRot-96-s2 topm-12,Random rotation top-m int8,96,36,42.666666666666664,0.788184208484033
+RandRot-96-s2 topm-16,Random rotation top-m int8,96,48,32.0,0.8091477654477516
+RandRot-96-s2 topm-24,Random rotation top-m int8,96,72,21.333333333333332,0.8285472497252431
+RandRot-96-s2 topm-32,Random rotation top-m int8,96,96,16.0,0.8378537881762544
+RandRot-96-s2 topm-48,Random rotation top-m int8,96,144,10.666666666666666,0.847921483736178
+RandRot-96-s2 topm-64,Random rotation top-m int8,96,192,8.0,0.8542622994999433
+RandRot-96-s2 topm-96,Random rotation top-m int8,96,288,5.333333333333333,0.8560365533934139
+RandRot-96-s3 topm-4,Random rotation top-m int8,96,12,128.0,0.6574278250287778
+RandRot-96-s3 topm-8,Random rotation top-m int8,96,24,64.0,0.755055688298598
+RandRot-96-s3 topm-12,Random rotation top-m int8,96,36,42.666666666666664,0.7927749256671164
+RandRot-96-s3 topm-16,Random rotation top-m int8,96,48,32.0,0.8113533901573992
+RandRot-96-s3 topm-24,Random rotation top-m int8,96,72,21.333333333333332,0.833455199731489
+RandRot-96-s3 topm-32,Random rotation top-m int8,96,96,16.0,0.8428298699021165
+RandRot-96-s3 topm-48,Random rotation top-m int8,96,144,10.666666666666666,0.8507993931955639
+RandRot-96-s3 topm-64,Random rotation top-m int8,96,192,8.0,0.8538429156278562
+RandRot-96-s3 topm-96,Random rotation top-m int8,96,288,5.333333333333333,0.8559303024304092
+RandRot-96-s4 topm-4,Random rotation top-m int8,96,12,128.0,0.6636888319409755
+RandRot-96-s4 topm-8,Random rotation top-m int8,96,24,64.0,0.7561310361042332
+RandRot-96-s4 topm-12,Random rotation top-m int8,96,36,42.666666666666664,0.7961025724843289
+RandRot-96-s4 topm-16,Random rotation top-m int8,96,48,32.0,0.8162810830099293
+RandRot-96-s4 topm-24,Random rotation top-m int8,96,72,21.333333333333332,0.8328111840130883
+RandRot-96-s4 topm-32,Random rotation top-m int8,96,96,16.0,0.8401223910224245
+RandRot-96-s4 topm-48,Random rotation top-m int8,96,144,10.666666666666666,0.8488962210636593
+RandRot-96-s4 topm-64,Random rotation top-m int8,96,192,8.0,0.8539979345488187
+RandRot-96-s4 topm-96,Random rotation top-m int8,96,288,5.333333333333333,0.8559061760792399
+RandRot-96-s5 topm-4,Random rotation top-m int8,96,12,128.0,0.6426902793883216
+RandRot-96-s5 topm-8,Random rotation top-m int8,96,24,64.0,0.7497084557654932
+RandRot-96-s5 topm-12,Random rotation top-m int8,96,36,42.666666666666664,0.7830064151170567
+RandRot-96-s5 topm-16,Random rotation top-m int8,96,48,32.0,0.7986118389761111
+RandRot-96-s5 topm-24,Random rotation top-m int8,96,72,21.333333333333332,0.8225764858182784
+RandRot-96-s5 topm-32,Random rotation top-m int8,96,96,16.0,0.8329339324678422
+RandRot-96-s5 topm-48,Random rotation top-m int8,96,144,10.666666666666666,0.8482232117024111
+RandRot-96-s5 topm-64,Random rotation top-m int8,96,192,8.0,0.8543614330203136
+RandRot-96-s5 topm-96,Random rotation top-m int8,96,288,5.333333333333333,0.8559957562122344
+PCA-128 float32,PCA float32,128,512,3.0,0.8609334891571832
+PCA-128 int8 dense,PCA int8 dense,128,128,12.0,0.860828528230656
+PCA-128 topm-4,PCA top-m int8,128,12,128.0,0.5668575237474549
+PCA-128 topm-8,PCA top-m int8,128,24,64.0,0.672329014943875
+PCA-128 topm-12,PCA top-m int8,128,36,42.666666666666664,0.7233656636077495
+PCA-128 topm-16,PCA top-m int8,128,48,32.0,0.7625641237758468
+PCA-128 topm-24,PCA top-m int8,128,72,21.333333333333332,0.8053144685674977
+PCA-128 topm-32,PCA top-m int8,128,96,16.0,0.8294025617034034
+PCA-128 topm-48,PCA top-m int8,128,144,10.666666666666666,0.8501908828551927
+PCA-128 topm-64,PCA top-m int8,128,192,8.0,0.8560747402525073
+PCA-128 topm-96,PCA top-m int8,128,288,5.333333333333333,0.8595325077633048
+PCA-128 topm-128,PCA top-m int8,128,384,4.0,0.860828528230656
+RandRot-128-s1 topm-4,Random rotation top-m int8,128,12,128.0,0.6590990630910047
+RandRot-128-s1 topm-8,Random rotation top-m int8,128,24,64.0,0.7421232054387025
+RandRot-128-s1 topm-12,Random rotation top-m int8,128,36,42.666666666666664,0.7783028911455904
+RandRot-128-s1 topm-16,Random rotation top-m int8,128,48,32.0,0.8087565689284517
+RandRot-128-s1 topm-24,Random rotation top-m int8,128,72,21.333333333333332,0.8319927645585459
+RandRot-128-s1 topm-32,Random rotation top-m int8,128,96,16.0,0.8452743377812406
+RandRot-128-s1 topm-48,Random rotation top-m int8,128,144,10.666666666666666,0.8545362943509517
+RandRot-128-s1 topm-64,Random rotation top-m int8,128,192,8.0,0.8563188133746813
+RandRot-128-s1 topm-96,Random rotation top-m int8,128,288,5.333333333333333,0.8603951141056004
+RandRot-128-s1 topm-128,Random rotation top-m int8,128,384,4.0,0.860951437568146
+RandRot-128-s2 topm-4,Random rotation top-m int8,128,12,128.0,0.6480601780507571
+RandRot-128-s2 topm-8,Random rotation top-m int8,128,24,64.0,0.7580797928694387
+RandRot-128-s2 topm-12,Random rotation top-m int8,128,36,42.666666666666664,0.7912942187604839
+RandRot-128-s2 topm-16,Random rotation top-m int8,128,48,32.0,0.8052418995293719
+RandRot-128-s2 topm-24,Random rotation top-m int8,128,72,21.333333333333332,0.8275680746722799
+RandRot-128-s2 topm-32,Random rotation top-m int8,128,96,16.0,0.8394456166769274
+RandRot-128-s2 topm-48,Random rotation top-m int8,128,144,10.666666666666666,0.8495955703007358
+RandRot-128-s2 topm-64,Random rotation top-m int8,128,192,8.0,0.8560190818511074
+RandRot-128-s2 topm-96,Random rotation top-m int8,128,288,5.333333333333333,0.8605002664382827
+RandRot-128-s2 topm-128,Random rotation top-m int8,128,384,4.0,0.8609731607683755
+RandRot-128-s3 topm-4,Random rotation top-m int8,128,12,128.0,0.6498214591851209
+RandRot-128-s3 topm-8,Random rotation top-m int8,128,24,64.0,0.7473079914461435
+RandRot-128-s3 topm-12,Random rotation top-m int8,128,36,42.666666666666664,0.7824726107332223
+RandRot-128-s3 topm-16,Random rotation top-m int8,128,48,32.0,0.8094008337037133
+RandRot-128-s3 topm-24,Random rotation top-m int8,128,72,21.333333333333332,0.8293212484800285
+RandRot-128-s3 topm-32,Random rotation top-m int8,128,96,16.0,0.8405368772164948
+RandRot-128-s3 topm-48,Random rotation top-m int8,128,144,10.666666666666666,0.8515044790914039
+RandRot-128-s3 topm-64,Random rotation top-m int8,128,192,8.0,0.856648486200057
+RandRot-128-s3 topm-96,Random rotation top-m int8,128,288,5.333333333333333,0.8599532055625295
+RandRot-128-s3 topm-128,Random rotation top-m int8,128,384,4.0,0.8610329340656687
+RandRot-128-s4 topm-4,Random rotation top-m int8,128,12,128.0,0.6349395720373677
+RandRot-128-s4 topm-8,Random rotation top-m int8,128,24,64.0,0.7422236694805306
+RandRot-128-s4 topm-12,Random rotation top-m int8,128,36,42.666666666666664,0.7862609095305142
+RandRot-128-s4 topm-16,Random rotation top-m int8,128,48,32.0,0.8095811776039387
+RandRot-128-s4 topm-24,Random rotation top-m int8,128,72,21.333333333333332,0.83283868507115
+RandRot-128-s4 topm-32,Random rotation top-m int8,128,96,16.0,0.841755755281855
+RandRot-128-s4 topm-48,Random rotation top-m int8,128,144,10.666666666666666,0.8501625493397009
+RandRot-128-s4 topm-64,Random rotation top-m int8,128,192,8.0,0.8593617015956074
+RandRot-128-s4 topm-96,Random rotation top-m int8,128,288,5.333333333333333,0.860804513979208
+RandRot-128-s4 topm-128,Random rotation top-m int8,128,384,4.0,0.8609198681513419
+RandRot-128-s5 topm-4,Random rotation top-m int8,128,12,128.0,0.6325083334880481
+RandRot-128-s5 topm-8,Random rotation top-m int8,128,24,64.0,0.7377805750627148
+RandRot-128-s5 topm-12,Random rotation top-m int8,128,36,42.666666666666664,0.7863175022965809
+RandRot-128-s5 topm-16,Random rotation top-m int8,128,48,32.0,0.81145358543739
+RandRot-128-s5 topm-24,Random rotation top-m int8,128,72,21.333333333333332,0.8273474446267823
+RandRot-128-s5 topm-32,Random rotation top-m int8,128,96,16.0,0.8400114177791366
+RandRot-128-s5 topm-48,Random rotation top-m int8,128,144,10.666666666666666,0.8506245122919586
+RandRot-128-s5 topm-64,Random rotation top-m int8,128,192,8.0,0.8556431438692487
+RandRot-128-s5 topm-96,Random rotation top-m int8,128,288,5.333333333333333,0.8607339356386862
+RandRot-128-s5 topm-128,Random rotation top-m int8,128,384,4.0,0.8608415887378899
+PCA-192 float32,PCA float32,192,768,2.0,0.8667777511974881
+PCA-192 int8 dense,PCA int8 dense,192,192,8.0,0.8667041967569887
+PCA-192 topm-4,PCA top-m int8,192,12,128.0,0.5691566466999213
+PCA-192 topm-8,PCA top-m int8,192,24,64.0,0.6650869264136191
+PCA-192 topm-12,PCA top-m int8,192,36,42.666666666666664,0.718524743962059
+PCA-192 topm-16,PCA top-m int8,192,48,32.0,0.7540264298115351
+PCA-192 topm-24,PCA top-m int8,192,72,21.333333333333332,0.7935324472438121
+PCA-192 topm-32,PCA top-m int8,192,96,16.0,0.8166941933388884
+PCA-192 topm-48,PCA top-m int8,192,144,10.666666666666666,0.8450319762654795
+PCA-192 topm-64,PCA top-m int8,192,192,8.0,0.855964761528923
+PCA-192 topm-96,PCA top-m int8,192,288,5.333333333333333,0.8629887290096898
+PCA-192 topm-128,PCA top-m int8,192,384,4.0,0.8658587612394401
+RandRot-192-s1 topm-4,Random rotation top-m int8,192,12,128.0,0.6431849587988688
+RandRot-192-s1 topm-8,Random rotation top-m int8,192,24,64.0,0.7530681645186235
+RandRot-192-s1 topm-12,Random rotation top-m int8,192,36,42.666666666666664,0.7904061130048775
+RandRot-192-s1 topm-16,Random rotation top-m int8,192,48,32.0,0.8044096340316067
+RandRot-192-s1 topm-24,Random rotation top-m int8,192,72,21.333333333333332,0.823658588396477
+RandRot-192-s1 topm-32,Random rotation top-m int8,192,96,16.0,0.8389737320096378
+RandRot-192-s1 topm-48,Random rotation top-m int8,192,144,10.666666666666666,0.8519586982660752
+RandRot-192-s1 topm-64,Random rotation top-m int8,192,192,8.0,0.8561469805158842
+RandRot-192-s1 topm-96,Random rotation top-m int8,192,288,5.333333333333333,0.8642835946719737
+RandRot-192-s1 topm-128,Random rotation top-m int8,192,384,4.0,0.8656998892436796
+RandRot-192-s2 topm-4,Random rotation top-m int8,192,12,128.0,0.6351539891622592
+RandRot-192-s2 topm-8,Random rotation top-m int8,192,24,64.0,0.748309041682041
+RandRot-192-s2 topm-12,Random rotation top-m int8,192,36,42.666666666666664,0.7805149270373035
+RandRot-192-s2 topm-16,Random rotation top-m int8,192,48,32.0,0.809352652424635
+RandRot-192-s2 topm-24,Random rotation top-m int8,192,72,21.333333333333332,0.8286097732428875
+RandRot-192-s2 topm-32,Random rotation top-m int8,192,96,16.0,0.8359645929223226
+RandRot-192-s2 topm-48,Random rotation top-m int8,192,144,10.666666666666666,0.8510226076292025
+RandRot-192-s2 topm-64,Random rotation top-m int8,192,192,8.0,0.8564104166407448
+RandRot-192-s2 topm-96,Random rotation top-m int8,192,288,5.333333333333333,0.8626643480029128
+RandRot-192-s2 topm-128,Random rotation top-m int8,192,384,4.0,0.8655814834680166
+RandRot-192-s3 topm-4,Random rotation top-m int8,192,12,128.0,0.6489479519628384
+RandRot-192-s3 topm-8,Random rotation top-m int8,192,24,64.0,0.7481269990821687
+RandRot-192-s3 topm-12,Random rotation top-m int8,192,36,42.666666666666664,0.7816549849047898
+RandRot-192-s3 topm-16,Random rotation top-m int8,192,48,32.0,0.8042749885847744
+RandRot-192-s3 topm-24,Random rotation top-m int8,192,72,21.333333333333332,0.8270271827689468
+RandRot-192-s3 topm-32,Random rotation top-m int8,192,96,16.0,0.8409118009627784
+RandRot-192-s3 topm-48,Random rotation top-m int8,192,144,10.666666666666666,0.8520097214329596
+RandRot-192-s3 topm-64,Random rotation top-m int8,192,192,8.0,0.8561168506018528
+RandRot-192-s3 topm-96,Random rotation top-m int8,192,288,5.333333333333333,0.8622289384497631
+RandRot-192-s3 topm-128,Random rotation top-m int8,192,384,4.0,0.8651139368820123
+RandRot-192-s4 topm-4,Random rotation top-m int8,192,12,128.0,0.6089701064730192
+RandRot-192-s4 topm-8,Random rotation top-m int8,192,24,64.0,0.7378275881663964
+RandRot-192-s4 topm-12,Random rotation top-m int8,192,36,42.666666666666664,0.7703553889812542
+RandRot-192-s4 topm-16,Random rotation top-m int8,192,48,32.0,0.7906707853256836
+RandRot-192-s4 topm-24,Random rotation top-m int8,192,72,21.333333333333332,0.8183962857389694
+RandRot-192-s4 topm-32,Random rotation top-m int8,192,96,16.0,0.8277269199776301
+RandRot-192-s4 topm-48,Random rotation top-m int8,192,144,10.666666666666666,0.8443259349915064
+RandRot-192-s4 topm-64,Random rotation top-m int8,192,192,8.0,0.8547024047858709
+RandRot-192-s4 topm-96,Random rotation top-m int8,192,288,5.333333333333333,0.863407535226328
+RandRot-192-s4 topm-128,Random rotation top-m int8,192,384,4.0,0.8657677131339022
+RandRot-192-s5 topm-4,Random rotation top-m int8,192,12,128.0,0.6472284387881109
+RandRot-192-s5 topm-8,Random rotation top-m int8,192,24,64.0,0.7457657773038943
+RandRot-192-s5 topm-12,Random rotation top-m int8,192,36,42.666666666666664,0.7850601049342418
+RandRot-192-s5 topm-16,Random rotation top-m int8,192,48,32.0,0.8051348918731209
+RandRot-192-s5 topm-24,Random rotation top-m int8,192,72,21.333333333333332,0.8284586446554408
+RandRot-192-s5 topm-32,Random rotation top-m int8,192,96,16.0,0.8388695575605216
+RandRot-192-s5 topm-48,Random rotation top-m int8,192,144,10.666666666666666,0.8506440674655961
+RandRot-192-s5 topm-64,Random rotation top-m int8,192,192,8.0,0.8556767524333677
+RandRot-192-s5 topm-96,Random rotation top-m int8,192,288,5.333333333333333,0.8640068987514854
+RandRot-192-s5 topm-128,Random rotation top-m int8,192,384,4.0,0.8659605424484703
+PCA-256 float32,PCA float32,256,1024,1.5,0.8686645585494162
+PCA-256 int8 dense,PCA int8 dense,256,256,6.0,0.8685365744753277
+PCA-256 topm-4,PCA top-m int8,256,12,128.0,0.5658192996371573
+PCA-256 topm-8,PCA top-m int8,256,24,64.0,0.6623344047221367
+PCA-256 topm-12,PCA top-m int8,256,36,42.666666666666664,0.7163285479145944
+PCA-256 topm-16,PCA top-m int8,256,48,32.0,0.750722283305899
+PCA-256 topm-24,PCA top-m int8,256,72,21.333333333333332,0.7899510334921506
+PCA-256 topm-32,PCA top-m int8,256,96,16.0,0.8100322743144089
+PCA-256 topm-48,PCA top-m int8,256,144,10.666666666666666,0.8386712940785023
+PCA-256 topm-64,PCA top-m int8,256,192,8.0,0.8511620696024342
+PCA-256 topm-96,PCA top-m int8,256,288,5.333333333333333,0.8621672231046814
+PCA-256 topm-128,PCA top-m int8,256,384,4.0,0.8655117093985123
+RandRot-256-s1 topm-4,Random rotation top-m int8,256,12,128.0,0.6317570035807861
+RandRot-256-s1 topm-8,Random rotation top-m int8,256,24,64.0,0.7276731465682375
+RandRot-256-s1 topm-12,Random rotation top-m int8,256,36,42.666666666666664,0.7732600354671387
+RandRot-256-s1 topm-16,Random rotation top-m int8,256,48,32.0,0.7972478543916548
+RandRot-256-s1 topm-24,Random rotation top-m int8,256,72,21.333333333333332,0.8191801163886653
+RandRot-256-s1 topm-32,Random rotation top-m int8,256,96,16.0,0.830956256725803
+RandRot-256-s1 topm-48,Random rotation top-m int8,256,144,10.666666666666666,0.8462517530465126
+RandRot-256-s1 topm-64,Random rotation top-m int8,256,192,8.0,0.8533409892555962
+RandRot-256-s1 topm-96,Random rotation top-m int8,256,288,5.333333333333333,0.8594051500241682
+RandRot-256-s1 topm-128,Random rotation top-m int8,256,384,4.0,0.8646211038016894
+RandRot-256-s2 topm-4,Random rotation top-m int8,256,12,128.0,0.6200462110920612
+RandRot-256-s2 topm-8,Random rotation top-m int8,256,24,64.0,0.7224537757886861
+RandRot-256-s2 topm-12,Random rotation top-m int8,256,36,42.666666666666664,0.7700997861978708
+RandRot-256-s2 topm-16,Random rotation top-m int8,256,48,32.0,0.7972007979098378
+RandRot-256-s2 topm-24,Random rotation top-m int8,256,72,21.333333333333332,0.8279889620076741
+RandRot-256-s2 topm-32,Random rotation top-m int8,256,96,16.0,0.8414361055950691
+RandRot-256-s2 topm-48,Random rotation top-m int8,256,144,10.666666666666666,0.8512075126942933
+RandRot-256-s2 topm-64,Random rotation top-m int8,256,192,8.0,0.8562024022623164
+RandRot-256-s2 topm-96,Random rotation top-m int8,256,288,5.333333333333333,0.8603306524422268
+RandRot-256-s2 topm-128,Random rotation top-m int8,256,384,4.0,0.8640265446725167
+RandRot-256-s3 topm-4,Random rotation top-m int8,256,12,128.0,0.6454993441259766
+RandRot-256-s3 topm-8,Random rotation top-m int8,256,24,64.0,0.73652540687737
+RandRot-256-s3 topm-12,Random rotation top-m int8,256,36,42.666666666666664,0.7779702292183618
+RandRot-256-s3 topm-16,Random rotation top-m int8,256,48,32.0,0.8027697757095215
+RandRot-256-s3 topm-24,Random rotation top-m int8,256,72,21.333333333333332,0.8231345464315613
+RandRot-256-s3 topm-32,Random rotation top-m int8,256,96,16.0,0.8370591220017924
+RandRot-256-s3 topm-48,Random rotation top-m int8,256,144,10.666666666666666,0.8499777769701947
+RandRot-256-s3 topm-64,Random rotation top-m int8,256,192,8.0,0.8561648292826501
+RandRot-256-s3 topm-96,Random rotation top-m int8,256,288,5.333333333333333,0.8616098686275186
+RandRot-256-s3 topm-128,Random rotation top-m int8,256,384,4.0,0.8643167601752887
+RandRot-256-s4 topm-4,Random rotation top-m int8,256,12,128.0,0.6573466719860682
+RandRot-256-s4 topm-8,Random rotation top-m int8,256,24,64.0,0.7491369917707021
+RandRot-256-s4 topm-12,Random rotation top-m int8,256,36,42.666666666666664,0.7832612355227814
+RandRot-256-s4 topm-16,Random rotation top-m int8,256,48,32.0,0.8084056849232617
+RandRot-256-s4 topm-24,Random rotation top-m int8,256,72,21.333333333333332,0.8309621595338711
+RandRot-256-s4 topm-32,Random rotation top-m int8,256,96,16.0,0.8420841663993628
+RandRot-256-s4 topm-48,Random rotation top-m int8,256,144,10.666666666666666,0.8526508108433537
+RandRot-256-s4 topm-64,Random rotation top-m int8,256,192,8.0,0.8559453255724495
+RandRot-256-s4 topm-96,Random rotation top-m int8,256,288,5.333333333333333,0.8643981072065161
+RandRot-256-s4 topm-128,Random rotation top-m int8,256,384,4.0,0.8669101925700261
+RandRot-256-s5 topm-4,Random rotation top-m int8,256,12,128.0,0.6348558506999687
+RandRot-256-s5 topm-8,Random rotation top-m int8,256,24,64.0,0.7291922357509986
+RandRot-256-s5 topm-12,Random rotation top-m int8,256,36,42.666666666666664,0.7736200772088688
+RandRot-256-s5 topm-16,Random rotation top-m int8,256,48,32.0,0.8038111803578246
+RandRot-256-s5 topm-24,Random rotation top-m int8,256,72,21.333333333333332,0.8233159118259119
+RandRot-256-s5 topm-32,Random rotation top-m int8,256,96,16.0,0.8337640006563394
+RandRot-256-s5 topm-48,Random rotation top-m int8,256,144,10.666666666666666,0.848681820559827
+RandRot-256-s5 topm-64,Random rotation top-m int8,256,192,8.0,0.8583043627876348
+RandRot-256-s5 topm-96,Random rotation top-m int8,256,288,5.333333333333333,0.8642585181422126
+RandRot-256-s5 topm-128,Random rotation top-m int8,256,384,4.0,0.8677819618549175
+PCA-384 float32,PCA float32,384,1536,1.0,0.8687899109490904
+PCA-384 int8 dense,PCA int8 dense,384,384,4.0,0.8687156109582628
+PCA-384 topm-4,PCA top-m int8,384,12,128.0,0.5657387784571976
+PCA-384 topm-8,PCA top-m int8,384,24,64.0,0.6620587420131377
+PCA-384 topm-12,PCA top-m int8,384,36,42.666666666666664,0.7163704911527813
+PCA-384 topm-16,PCA top-m int8,384,48,32.0,0.7506703710362194
+PCA-384 topm-24,PCA top-m int8,384,72,21.333333333333332,0.7897649736562476
+PCA-384 topm-32,PCA top-m int8,384,96,16.0,0.8095349214879201
+PCA-384 topm-48,PCA top-m int8,384,144,10.666666666666666,0.8372380368616382
+PCA-384 topm-64,PCA top-m int8,384,192,8.0,0.8502127789117315
+PCA-384 topm-96,PCA top-m int8,384,288,5.333333333333333,0.8614669859666362
+PCA-384 topm-128,PCA top-m int8,384,384,4.0,0.8647911145951723
+RandRot-384-s1 topm-4,Random rotation top-m int8,384,12,128.0,0.6102389313241314
+RandRot-384-s1 topm-8,Random rotation top-m int8,384,24,64.0,0.7215736632284362
+RandRot-384-s1 topm-12,Random rotation top-m int8,384,36,42.666666666666664,0.7742494301179392
+RandRot-384-s1 topm-16,Random rotation top-m int8,384,48,32.0,0.799191588791189
+RandRot-384-s1 topm-24,Random rotation top-m int8,384,72,21.333333333333332,0.8263374574928192
+RandRot-384-s1 topm-32,Random rotation top-m int8,384,96,16.0,0.8344926821424615
+RandRot-384-s1 topm-48,Random rotation top-m int8,384,144,10.666666666666666,0.8498663427295916
+RandRot-384-s1 topm-64,Random rotation top-m int8,384,192,8.0,0.8541110716375722
+RandRot-384-s1 topm-96,Random rotation top-m int8,384,288,5.333333333333333,0.8616181141848103
+RandRot-384-s1 topm-128,Random rotation top-m int8,384,384,4.0,0.8638733648515031
+RandRot-384-s2 topm-4,Random rotation top-m int8,384,12,128.0,0.5988050127634927
+RandRot-384-s2 topm-8,Random rotation top-m int8,384,24,64.0,0.7135458689669928
+RandRot-384-s2 topm-12,Random rotation top-m int8,384,36,42.666666666666664,0.7618888646717348
+RandRot-384-s2 topm-16,Random rotation top-m int8,384,48,32.0,0.7884975723530294
+RandRot-384-s2 topm-24,Random rotation top-m int8,384,72,21.333333333333332,0.8187024195788201
+RandRot-384-s2 topm-32,Random rotation top-m int8,384,96,16.0,0.8354945500857609
+RandRot-384-s2 topm-48,Random rotation top-m int8,384,144,10.666666666666666,0.8527610849408073
+RandRot-384-s2 topm-64,Random rotation top-m int8,384,192,8.0,0.8556589392538148
+RandRot-384-s2 topm-96,Random rotation top-m int8,384,288,5.333333333333333,0.8621667907200415
+RandRot-384-s2 topm-128,Random rotation top-m int8,384,384,4.0,0.8653434548339994
+RandRot-384-s3 topm-4,Random rotation top-m int8,384,12,128.0,0.6394619619317969
+RandRot-384-s3 topm-8,Random rotation top-m int8,384,24,64.0,0.7344112383717231
+RandRot-384-s3 topm-12,Random rotation top-m int8,384,36,42.666666666666664,0.7770030672841602
+RandRot-384-s3 topm-16,Random rotation top-m int8,384,48,32.0,0.8033272304691456
+RandRot-384-s3 topm-24,Random rotation top-m int8,384,72,21.333333333333332,0.8287321056016774
+RandRot-384-s3 topm-32,Random rotation top-m int8,384,96,16.0,0.838853501755645
+RandRot-384-s3 topm-48,Random rotation top-m int8,384,144,10.666666666666666,0.8501116934327186
+RandRot-384-s3 topm-64,Random rotation top-m int8,384,192,8.0,0.8574708497569027
+RandRot-384-s3 topm-96,Random rotation top-m int8,384,288,5.333333333333333,0.8640946443636411
+RandRot-384-s3 topm-128,Random rotation top-m int8,384,384,4.0,0.8654900118746418
+RandRot-384-s4 topm-4,Random rotation top-m int8,384,12,128.0,0.6438815319921851
+RandRot-384-s4 topm-8,Random rotation top-m int8,384,24,64.0,0.7365482515439971
+RandRot-384-s4 topm-12,Random rotation top-m int8,384,36,42.666666666666664,0.7766283284222095
+RandRot-384-s4 topm-16,Random rotation top-m int8,384,48,32.0,0.8005135494832659
+RandRot-384-s4 topm-24,Random rotation top-m int8,384,72,21.333333333333332,0.8252107900329709
+RandRot-384-s4 topm-32,Random rotation top-m int8,384,96,16.0,0.834524955783423
+RandRot-384-s4 topm-48,Random rotation top-m int8,384,144,10.666666666666666,0.848989473797053
+RandRot-384-s4 topm-64,Random rotation top-m int8,384,192,8.0,0.8507646316057382
+RandRot-384-s4 topm-96,Random rotation top-m int8,384,288,5.333333333333333,0.8579457824690003
+RandRot-384-s4 topm-128,Random rotation top-m int8,384,384,4.0,0.8649868567231387
+RandRot-384-s5 topm-4,Random rotation top-m int8,384,12,128.0,0.6215673579562027
+RandRot-384-s5 topm-8,Random rotation top-m int8,384,24,64.0,0.7289751068553669
+RandRot-384-s5 topm-12,Random rotation top-m int8,384,36,42.666666666666664,0.7843496771267552
+RandRot-384-s5 topm-16,Random rotation top-m int8,384,48,32.0,0.8036009425921244
+RandRot-384-s5 topm-24,Random rotation top-m int8,384,72,21.333333333333332,0.8296867750787617
+RandRot-384-s5 topm-32,Random rotation top-m int8,384,96,16.0,0.840577630607284
+RandRot-384-s5 topm-48,Random rotation top-m int8,384,144,10.666666666666666,0.8508906743973479
+RandRot-384-s5 topm-64,Random rotation top-m int8,384,192,8.0,0.8576018018045695
+RandRot-384-s5 topm-96,Random rotation top-m int8,384,288,5.333333333333333,0.8604279016196597
+RandRot-384-s5 topm-128,Random rotation top-m int8,384,384,4.0,0.8619024755910156
